@@ -1,12 +1,16 @@
 import React from 'react';
-import { hot } from "react-hot-loader/root";
+import {ConnectedRouter} from "connected-react-router";
+import {hot} from "react-hot-loader/root";
+import {history} from "./store/store";
 
 function App() {
-  return (
-    <div className="App">
-      Task Management
-    </div>
-  );
+    return (
+        <ConnectedRouter history={history}>
+            <div className="App">
+                Task Management
+            </div>
+        </ConnectedRouter>
+    );
 }
 
 export default hot(App);
