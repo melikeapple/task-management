@@ -1,6 +1,6 @@
-const { merge } = require("webpack-merge");
+const {merge} = require("webpack-merge");
 const common = require("./webpack/webpack.common");
 
-/* eslint-disable global-require,import/no-dynamic-require */
-const envConfig = require(`./webpack/webpack.${process.env.NODE_ENV}.js`);
+// const envConfig = require(`./webpack/webpack.${process.env.NODE_ENV}.js`);
+const envConfig = require(`./webpack/webpack.development.js`);
 module.exports = merge(common, envConfig);

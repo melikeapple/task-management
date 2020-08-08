@@ -1,31 +1,30 @@
-import {takeLatest} from "redux-saga/effects";
+import { takeLatest } from "redux-saga/effects";
 
 export const actionTypes = {
-    AppProcess: "[App Api] APP PROCESS"
+  AppProcess: "[App Api] APP PROCESS",
 };
 
 export const actions = {
-    appProcess: () => ({type: actionTypes.AppProcess})
-}
+  appProcess: () => ({ type: actionTypes.AppProcess }),
+};
 
 const initialState = {
-    entity: null
-}
+  entity: null,
+};
 
-export const reducer = (
-    state = initialState,
-    action
-) => {
-    const {type,payload} = action
-    switch (type) {
-        default:
-            return state
-
-    }
-}
+export const reducer = (state = initialState, action) => {
+  const { type, payload } = action;
+  switch (type) {
+    default:
+      return state;
+  }
+};
 
 export function* saga() {
-    yield takeLatest(actionTypes.AppProcess, function* AppProcess() {
-
-    })
+  yield takeLatest(actionTypes.AppProcess, function* AppProcess() {
+    const mode = localStorage.getItem("mode");
+    if (!mode) {
+      localStorage.setItem("mode", "light");
+    }
+  });
 }
