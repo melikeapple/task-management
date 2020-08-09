@@ -12,21 +12,22 @@ import {
 import { Brand } from "../Brand";
 import { AsideCollapseWrapper, AsideWrapper } from "./styles";
 import { Title } from "./Title";
+import { ListGroupContainer, ListGroupItem } from "../../content/ListGroup";
 
 export const Aside = () => {
   return (
-    <TabContainer id="left-tabs-example" defaultActiveKey="first">
+    <TabContainer id="left-tabs-example" defaultActiveKey="dashboard">
       <div className="d-flex">
         <AsideWrapper>
           <Brand />
           <TabNav variant="pills" className="flex-column">
             <NavItem>
-              <NavLink eventKey="first" color="unset">
+              <NavLink eventKey="dashboard" color="unset">
                 <FontAwesomeIcon icon={faThLarge} />
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink eventKey="second">
+              <NavLink eventKey="projects">
                 <FontAwesomeIcon icon={faFolder} />
               </NavLink>
             </NavItem>
@@ -34,11 +35,17 @@ export const Aside = () => {
         </AsideWrapper>
         <AsideCollapseWrapper>
           <TabContent>
-            <TabPane eventKey="first">
+            <TabPane eventKey="dashboard">
               <Title value="Dashboard" />
+              <ListGroupContainer defaultActiveKey="#analytics">
+                <ListGroupItem href="#analytics">Project Details</ListGroupItem>
+              </ListGroupContainer>
             </TabPane>
-            <TabPane eventKey="second">
+            <TabPane eventKey="projects">
               <Title value="Projects" />
+              <ListGroupContainer>
+                <ListGroupItem href="Link3">Add Project</ListGroupItem>
+              </ListGroupContainer>
             </TabPane>
           </TabContent>
         </AsideCollapseWrapper>
